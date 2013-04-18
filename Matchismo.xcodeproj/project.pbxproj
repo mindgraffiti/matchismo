@@ -22,6 +22,7 @@
 		AF97D0FD17146C4B0039D955 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = AF97D0FC17146C4B0039D955 /* Deck.m */; };
 		AF97D10017146F7E0039D955 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = AF97D0FF17146F7E0039D955 /* PlayingCard.m */; };
 		AF97D103171471FA0039D955 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = AF97D102171471FA0039D955 /* PlayingCardDeck.m */; };
+		AF9E508E171F7FF90056DD64 /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9E508D171F7FF90056DD64 /* CardMatchingGame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,8 @@
 		AF97D0FF17146F7E0039D955 /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCard.m; sourceTree = "<group>"; };
 		AF97D101171471FA0039D955 /* PlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardDeck.h; sourceTree = "<group>"; };
 		AF97D102171471FA0039D955 /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardDeck.m; sourceTree = "<group>"; };
+		AF9E508C171F7FF90056DD64 /* CardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardMatchingGame.h; sourceTree = "<group>"; };
+		AF9E508D171F7FF90056DD64 /* CardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardMatchingGame.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +134,8 @@
 				AF97D0FB17146C4B0039D955 /* Deck.h */,
 				AF97D0FC17146C4B0039D955 /* Deck.m */,
 				AF97D0F917146BE90039D955 /* Card.m */,
+				AF9E508C171F7FF90056DD64 /* CardMatchingGame.h */,
+				AF9E508D171F7FF90056DD64 /* CardMatchingGame.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 				AF97D0FD17146C4B0039D955 /* Deck.m in Sources */,
 				AF97D10017146F7E0039D955 /* PlayingCard.m in Sources */,
 				AF97D103171471FA0039D955 /* PlayingCardDeck.m in Sources */,
+				AF9E508E171F7FF90056DD64 /* CardMatchingGame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +337,7 @@
 				AF97D0F61714652B0039D955 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
