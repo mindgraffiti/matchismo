@@ -7,6 +7,9 @@
 //
 
 #import "CardMatchingGame.h"
+#define MATCH_BONUS 4
+#define MISMATCH_PENALTY 2
+#define FLIP_COST 1
 
 @interface CardMatchingGame()
 @property (strong, nonatomic) NSMutableArray *cards;
@@ -51,7 +54,33 @@
     
     // check to see if the card is playable
     if (!card.isUnplayable){
-        card.faceUp = !card.isFaceUp;
+        // if not, check to see if the card is faceUp.
+        if(!card.isFaceUp)
+        {
+            // loop through the other cards for a match.
+            for (Card *otherCard in self.cards){
+                // if the other card is faceUp and playble...
+                if (otherCard.isFaceUp && !otherCard.isUnplayable){
+                    // score it to see how good of a match it was.
+                    int matchScore = [card match:@[otherCard]];
+                    if (matchScore) {
+                        // make the matching pair unplayable
+                        otherCard.unplayable = YES;
+                        card.unplayable = YES;
+                        // add up the score
+                        self.score += matchScore * MATCH_BONUS;
+                    } else {
+                        // flip the other card face down
+                        otherCard.faceUp = NO;
+                        // apply a penalty to the score
+                        self.score -= MISMATCH_PENALTY;
+                    }
+                    break;
+                }
+            }
+            self.score -= FLIP_COST;
+        }
     }
+    card.faceUp = !card.isFaceUp;
 }
 @end

@@ -10,6 +10,7 @@
 
 @implementation PlayingCard
 
+
 - (NSString *)contents
 {
     NSArray *rankStrings = [PlayingCard rankStrings];
@@ -52,5 +53,23 @@
     {
         _rank = rank;
     }
+}
+
+- (int)match:(NSArray *)otherCards
+{
+    int score = 0;
+    
+    if (otherCards.count ==1){
+        // lastObject keeps the array from crashing if empty. Returns nil instead.
+        PlayingCard *otherCard = [otherCards lastObject];
+        if ([otherCard.suit isEqualToString:self.suit]) {
+            score = 1;
+        } else if (otherCard.rank == self.rank) {
+            score = 4;
+            // get fancy: give 4x points for matching the rank rather than the suit.
+        }
+    }
+    
+    return score;
 }
 @end

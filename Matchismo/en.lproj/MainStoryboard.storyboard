@@ -205,7 +205,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Flips: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Veu-hM-FvE">
-                                <rect key="frame" x="20" y="419" width="120" height="21"/>
+                                <rect key="frame" x="20" y="419" width="89" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score: 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jll-vG-Bml">
+                                <rect key="frame" x="185" y="419" width="115" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -216,6 +223,7 @@
                     </view>
                     <connections>
                         <outlet property="flipsLabel" destination="Veu-hM-FvE" id="iaV-Ec-G0p"/>
+                        <outlet property="scoreLabel" destination="jll-vG-Bml" id="6xF-kz-nLs"/>
                         <outletCollection property="cardButtons" destination="NkV-Pb-GWq" id="Qzd-T3-u5V"/>
                         <outletCollection property="cardButtons" destination="tWb-ST-ULI" id="2VD-UB-qlS"/>
                         <outletCollection property="cardButtons" destination="ej4-kE-vo9" id="tgJ-fT-W55"/>
@@ -240,6 +248,7 @@
             <relationships>
                 <relationship kind="action" name="flipCard:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="flipsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
                 <relationship kind="outletCollection" name="cardButtons" candidateClass="UIButton"/>
             </relationships>
         </class>
