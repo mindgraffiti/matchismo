@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Card.h"
 #import "Deck.h"
 
 @interface CardMatchingGame : NSObject
 
-// initializer
-- (id) initWithCardCount:(NSUInteger)cardCount usingDeck:(Deck *)deck;
+// designated initializer. Need it to tell the game how many cards we want to use.
+- (id) initWithCardCount:(NSUInteger)count usingDeck:(Deck *)deck;
 
 - (void) flipCardAtIndex:(NSUInteger)index;
 

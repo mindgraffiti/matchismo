@@ -15,12 +15,12 @@
 @property (strong, nonatomic) NSMutableArray *cards;
 
 // provides a means for creating a setter in this class through its private API
-@property (nonatomic) int score;
+@property (readwrite, nonatomic) int score;
 @end
 
 @implementation CardMatchingGame
 
-- (NSMutableArray *)cards
+- (NSMutableArray *)cards // of the class Card
 {
     if (!_cards) _cards = [[NSMutableArray alloc] init];
     return _cards;
@@ -36,6 +36,7 @@
             if (!card){
                 self = nil;
             } else {
+                // a nicer way to say setObjectAtIndex:index
                 self.cards[i] = card;
             }
         }
@@ -45,16 +46,18 @@
 
 - (Card *)cardAtIndex:(NSUInteger)index
 {
-    return (index < self.cards.count) ? self.cards[index] : nil;
+    return (index < [self.cards count]) ? self.cards[index] : nil;
 }
 
 - (void)flipCardAtIndex:(NSUInteger)index
 {
+    // get the card
     Card *card = [self cardAtIndex:index];
     
-    // check to see if the card is playable
-    if (!card.isUnplayable){
-        // if not, check to see if the card is faceUp.
+    // check to see if the card exists and is playable
+    if (card && !card.isUnplayable){
+        // if the card is not already faceUp
+        // ensures that a card is not comparing against itself.
         if(!card.isFaceUp)
         {
             // loop through the other cards for a match.

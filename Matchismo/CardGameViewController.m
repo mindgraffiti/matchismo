@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
 @property (nonatomic) int flipCount;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
+// create a pointer to the CardMatchingGame class (Model) so you can reference it in the CardGameViewController (Controller).
 @property (strong, nonatomic) CardMatchingGame *game;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @end
@@ -21,6 +22,7 @@
 @implementation CardGameViewController
 
 // since we don't have a viewDidLoad to init classes and methods, we need to instantiate the game here.
+// in our DI class, this would happen in viewDidLoad.
 - (CardMatchingGame *)game
 {
     if (!_game) _game = [[CardMatchingGame alloc] initWithCardCount:self.cardButtons.count usingDeck:[[PlayingCardDeck alloc] init]];
@@ -35,8 +37,10 @@
     [self updateUI];
 }
 
+// This method is an excellent example of the Controller telling the View what to do.
 - (void) updateUI
 {
+    // loop through the IBOutletCollection of UIButtons
     for (UIButton *cardButton in self.cardButtons) {
         Card *card = [self.game cardAtIndex:[self.cardButtons indexOfObject:cardButton]];
         // set the title in the button's selected state to be card contents
@@ -51,6 +55,8 @@
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d",self.game.score];
 }
+
+// it's ok for purely UI item to update themselves in their own setter. /philosophy
 - (void) setFlipCount:(int)flipCount
 {
     _flipCount = flipCount;
