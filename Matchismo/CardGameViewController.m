@@ -9,6 +9,7 @@
 #import "CardGameViewController.h"
 #import "PlayingCardDeck.h"
 #import "CardMatchingGame.h"
+#import "PausedViewController.h"
 
 @interface CardGameViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
@@ -87,6 +88,17 @@
     self.flipCount++;
     [self updateUI];
 }
+- (IBAction)topScoresPressed:(id)sender
+{
+    // When button pushed, point to where the ViewController xib is located
+    PausedViewController *pauseView;
+    
+    // Don't forget to allocate memory to it
+    pauseView = [PausedViewController alloc];
+    
+    // Now present the view
+    [self presentViewController:pauseView animated:YES completion:Nil];
+}
 - (IBAction)playButtonPressed:(id)sender
 {
     self.pressedCount++;
@@ -107,7 +119,7 @@
         self.startDate = [[NSDate alloc] init];
         [sender setTitle:@"Play" forState:UIControlStateNormal];
         self.running = NO;
-
+        
     }
 }
 - (void)updateTime

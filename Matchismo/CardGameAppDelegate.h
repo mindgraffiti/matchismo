@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class CardGameViewController;
+
 @interface CardGameAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (strong, nonatomic) CardGameViewController *viewController;
 
 @end
