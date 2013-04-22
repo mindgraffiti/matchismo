@@ -14,12 +14,11 @@
 
 // designated initializer. Need it to tell the game how many cards we want to use.
 - (id) initWithCardCount:(NSUInteger)count usingDeck:(Deck *)deck;
-
 - (void) flipCardAtIndex:(NSUInteger)index;
-
 - (Card *)cardAtIndex:(NSUInteger)index;
 
 // readonly means there is NO setter.
 @property (nonatomic, readonly) int score;
+
 
 @end

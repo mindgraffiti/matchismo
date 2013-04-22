@@ -14,19 +14,37 @@
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
 @property (nonatomic) int flipCount;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
+
 // create a pointer to the CardMatchingGame class (Model) so you can reference it in the CardGameViewController (Controller).
 @property (strong, nonatomic) CardMatchingGame *game;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
+@property (nonatomic) BOOL running;
+@property (nonatomic) NSTimeInterval elapsed;
+@property (nonatomic) NSTimeInterval startsTime;
+@property (strong, nonatomic) NSDate *startDate;
+@property (nonatomic) NSTimeInterval secondsAlreadyRun;
+@property (nonatomic) int pressedCount;
+
 @end
 
 @implementation CardGameViewController
 
+- (void) viewDidLoad
+{
+    [super viewDidLoad];
+    self.timerLabel.text = @"0:00.0";
+    self.running = NO;
+    [self.cardButtons setValue: [NSNumber numberWithBool:YES] forKey:@"hidden"];
+}
 // since we don't have a viewDidLoad to init classes and methods, we need to instantiate the game here.
 // in our DI class, this would happen in viewDidLoad.
 - (CardMatchingGame *)game
 {
     if (!_game) _game = [[CardMatchingGame alloc] initWithCardCount:self.cardButtons.count usingDeck:[[PlayingCardDeck alloc] init]];
     // get the card count from however many buttons are in the view.
+    
     return _game;
 }
 
@@ -69,5 +87,46 @@
     self.flipCount++;
     [self updateUI];
 }
+- (IBAction)playButtonPressed:(id)sender
+{
+    self.pressedCount++;
+    if (self.pressedCount == 0) {
+        [self.cardButtons setValue: [NSNumber numberWithBool:YES] forKey:@"hidden"];
+    } else {
+        [self.cardButtons setValue:[NSNumber numberWithBool:NO] forKey:@"hidden"];
+    }
+    if (self.running == NO) {
+        self.running = YES;
+        self.startDate = [[NSDate alloc] init];
+        self.startsTime = [NSDate timeIntervalSinceReferenceDate];
+        [sender setTitle:@"Pause" forState:UIControlStateNormal];
+        
+        [self updateTime];
+    } else {
+        self.secondsAlreadyRun += [[NSDate date] timeIntervalSinceDate:self.startDate];
+        self.startDate = [[NSDate alloc] init];
+        [sender setTitle:@"Play" forState:UIControlStateNormal];
+        self.running = NO;
 
+    }
+}
+- (void)updateTime
+{
+    if (self.running == NO) {
+        
+        return;
+    }
+    NSTimeInterval currentTime = [NSDate timeIntervalSinceReferenceDate];
+    NSTimeInterval elapsed = self.secondsAlreadyRun + currentTime - self.startsTime;
+    
+    int mins = (int) (elapsed / 60.0);
+    elapsed -= mins * 60;
+    int secs = (int) (elapsed);
+    elapsed -= secs;
+    int fraction = elapsed *10.0;
+    
+    self.timerLabel.text = [NSString stringWithFormat:@"%u:%02u.%u", mins, secs, fraction];
+    
+    [self performSelector:@selector(updateTime) withObject:self afterDelay:0.1];
+}
 @end

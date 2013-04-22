@@ -43,7 +43,6 @@
     }
     return self;
 }
-
 - (Card *)cardAtIndex:(NSUInteger)index
 {
     return (index < [self.cards count]) ? self.cards[index] : nil;
@@ -86,4 +85,7 @@
     }
     card.faceUp = !card.isFaceUp;
 }
+
+
+
 @end
