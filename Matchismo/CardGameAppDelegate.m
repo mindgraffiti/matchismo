@@ -14,11 +14,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.viewController = [[CardGameViewController alloc] initWithNibName:@"CardGameViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    // change your rootview to the Main ViewController
+    UIViewController *rootView = [[CardGameViewController alloc] initWithNibName:@"CardGameViewController" bundle:nil];
+    self.navController = [[UINavigationController alloc] initWithRootViewController:rootView];
+    [[self window] setRootViewController:self.navController];
     [self.window makeKeyAndVisible];
+    
     return YES;
+
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

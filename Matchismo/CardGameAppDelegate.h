@@ -14,6 +14,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) CardGameViewController *viewController;
+@property (strong, nonatomic) UINavigationController *navController;
 
 @end

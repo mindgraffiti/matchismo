@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PausedViewController : UIViewController
--(IBAction)continueButton:(id)sender;
 
 @end

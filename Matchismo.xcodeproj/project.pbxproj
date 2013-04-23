@@ -26,6 +26,8 @@
 		AF9B61FE1724C4D00052843F /* CardGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9B61FD1724C4D00052843F /* CardGameViewController.xib */; };
 		AF9B62001724D0B50052843F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF9B61FF1724D0B50052843F /* MainStoryboard.storyboard */; };
 		AF9E508E171F7FF90056DD64 /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9E508D171F7FF90056DD64 /* CardMatchingGame.m */; };
+		AFCEF3CC1725C1B5001ECBAF /* TopScoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCEF3CA1725C1B4001ECBAF /* TopScoresViewController.m */; };
+		AFCEF3CD1725C1B5001ECBAF /* TopScoresViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFCEF3CB1725C1B4001ECBAF /* TopScoresViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,9 @@
 		AF9B61FF1724D0B50052843F /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		AF9E508C171F7FF90056DD64 /* CardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardMatchingGame.h; sourceTree = "<group>"; };
 		AF9E508D171F7FF90056DD64 /* CardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardMatchingGame.m; sourceTree = "<group>"; };
+		AFCEF3C91725C1B4001ECBAF /* TopScoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopScoresViewController.h; sourceTree = "<group>"; };
+		AFCEF3CA1725C1B4001ECBAF /* TopScoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopScoresViewController.m; sourceTree = "<group>"; };
+		AFCEF3CB1725C1B4001ECBAF /* TopScoresViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopScoresViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +119,9 @@
 				AF9B61F61724BFFE0052843F /* PausedViewController.h */,
 				AF9B61F71724BFFE0052843F /* PausedViewController.m */,
 				AF9B61FD1724C4D00052843F /* CardGameViewController.xib */,
+				AFCEF3C91725C1B4001ECBAF /* TopScoresViewController.h */,
+				AFCEF3CA1725C1B4001ECBAF /* TopScoresViewController.m */,
+				AFCEF3CB1725C1B4001ECBAF /* TopScoresViewController.xib */,
 				AF9B61F81724BFFE0052843F /* PausedViewController.xib */,
 				AF97D0DB1714652B0039D955 /* Supporting Files */,
 			);
@@ -210,6 +218,7 @@
 				AF9B61FA1724BFFE0052843F /* PausedViewController.xib in Resources */,
 				AF9B61FE1724C4D00052843F /* CardGameViewController.xib in Resources */,
 				AF9B62001724D0B50052843F /* MainStoryboard.storyboard in Resources */,
+				AFCEF3CD1725C1B5001ECBAF /* TopScoresViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +238,7 @@
 				AF97D103171471FA0039D955 /* PlayingCardDeck.m in Sources */,
 				AF9E508E171F7FF90056DD64 /* CardMatchingGame.m in Sources */,
 				AF9B61F91724BFFE0052843F /* PausedViewController.m in Sources */,
+				AFCEF3CC1725C1B5001ECBAF /* TopScoresViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,6 @@
 //
 
 #import "PausedViewController.h"
-#import "CardGameViewController.h"
 
 @interface PausedViewController ()
 
@@ -29,12 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
--(IBAction)continueButton:(id)sender
-{
-    CardGameViewController *gameView;
-    gameView = [CardGameViewController alloc];
-    [self presentViewController:gameView animated:YES completion:Nil];
-}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

@@ -10,6 +10,7 @@
 #import "PlayingCardDeck.h"
 #import "CardMatchingGame.h"
 #import "PausedViewController.h"
+#import "TopScoresViewController.h"
 
 @interface CardGameViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
@@ -37,15 +38,13 @@
     [super viewDidLoad];
     self.timerLabel.text = @"0:00.0";
     self.running = NO;
+    self.title = @"Memory";
     [self.cardButtons setValue: [NSNumber numberWithBool:YES] forKey:@"hidden"];
 }
-// since we don't have a viewDidLoad to init classes and methods, we need to instantiate the game here.
-// in our DI class, this would happen in viewDidLoad.
+// init the game
 - (CardMatchingGame *)game
-{
+{   // get the card count from however many buttons are in the view.
     if (!_game) _game = [[CardMatchingGame alloc] initWithCardCount:self.cardButtons.count usingDeck:[[PlayingCardDeck alloc] init]];
-    // get the card count from however many buttons are in the view.
-    
     return _game;
 }
 
@@ -88,17 +87,16 @@
     self.flipCount++;
     [self updateUI];
 }
+
 - (IBAction)topScoresPressed:(id)sender
 {
-    // When button pushed, point to where the ViewController xib is located
-    PausedViewController *pauseView;
-    
-    // Don't forget to allocate memory to it
-    pauseView = [PausedViewController alloc];
-    
-    // Now present the view
-    [self presentViewController:pauseView animated:YES completion:Nil];
+    TopScoresViewController *scoresView;
+    scoresView = [[TopScoresViewController alloc] initWithNibName:@"TopScoresViewController" bundle:nil];
+    [self setTitle: @"back"];
+    [self.navigationController pushViewController:scoresView animated:YES];
 }
+
+
 - (IBAction)playButtonPressed:(id)sender
 {
     self.pressedCount++;
@@ -119,6 +117,11 @@
         self.startDate = [[NSDate alloc] init];
         [sender setTitle:@"Play" forState:UIControlStateNormal];
         self.running = NO;
+        
+        PausedViewController *pauseView;
+        pauseView = [[PausedViewController alloc] initWithNibName:@"PausedViewController" bundle:nil];
+        [self setTitle: @"back"];
+        [self.navigationController pushViewController:pauseView animated:YES];
         
     }
 }
@@ -141,4 +144,13 @@
     
     [self performSelector:@selector(updateTime) withObject:self afterDelay:0.1];
 }
+- (void)saveScore
+{
+    NSMutableArray *scores = [[[NSUserDefaults standardUserDefaults] arrayForKey:@"scores"] mutableCopy];
+    if(!scores) scores = [[NSMutableArray alloc] init];
+    // get the score for the game and save it to the array
+    //[scores addObject:[NSNumber numberWithDouble:self.scores]];
+    [[NSUserDefaults standardUserDefaults] setValue:scores forKey:@"scores"];
+}
+
 @end
