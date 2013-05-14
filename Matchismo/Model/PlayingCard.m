@@ -49,6 +49,7 @@
 
 - (void)setRank:(NSUInteger)rank
 {
+    // let's do some bounds checking.
     if(rank <= [PlayingCard maxRank])
     {
         _rank = rank;

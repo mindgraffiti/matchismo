@@ -28,13 +28,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"Top Scores";
-    //self.game.scores = [[NSUserDefaults standardUserDefaults] arrayForKey:@"scores"];
+    //self.game.score = [[NSUserDefaults standardUserDefaults] arrayForKey:@"scores"];
     // reload table data
     [self.tableView reloadData];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //return self.game.scores.count;
+    //return [self.game.score.count];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];

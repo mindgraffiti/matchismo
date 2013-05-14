@@ -111,6 +111,9 @@
         self.startsTime = [NSDate timeIntervalSinceReferenceDate];
         [sender setTitle:@"Pause" forState:UIControlStateNormal];
         
+        // so this is the method. when 
+        //[UIView transitionFromView:<#(UIView *)#> toView:<#(UIView *)#> duration:<#(NSTimeInterval)#> options:<#(UIViewAnimationOptions)#> completion:<#^(BOOL finished)completion#>];
+        
         [self updateTime];
     } else {
         self.secondsAlreadyRun += [[NSDate date] timeIntervalSinceDate:self.startDate];
